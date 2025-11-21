@@ -3,7 +3,7 @@ x=$(( 20 + RANDOM % (8 - 15 + 5) ))
 
 echo "guess a number from 0 to 40:"
 
- read -p "Enter the value you guest: " y
+ read -r "Enter the value you guest: " y
 
  if [[ $y -eq $x ]]; then
 
