@@ -1,29 +1,29 @@
 #!/bin/bash
-x=$(( 20 + RANDOM % (8 - 15 + 5) ))
-
+x=$(( RANDOM % 15 ))
+y=-1
 echo "guess a number from 0 to 40:"
+while [[ $y -ne $x ]]; do 
+if [[ $y == "exit" ]]; then
+echo "you have quit the game."
+exit 0
+fi
 
- read -r "Enter the value you guest: " y
+ read -r -p "Enter the value you guest: " y
 
- if [[ $y -eq $x ]]; then
+ if ! [[ $y =~ ^[0-9]+$ ]]; then
 
-echo "you win"
+echo  "Invalid input! Please enter a number."
+continue
 
- elif [[ $y -lt $x ]]; then
+fi
 
-echo "you lose"
-
-echo "you above the win number"
-
- elif  [[  $y -gt $x  ]]; then
-
-echo "you lose"
-
-echo "you above the win number"
-
+if [[ $y -eq $x ]]; then
+echo "Congratulations! you guessed the number."
+break
+elif [[ $y -lt $x ]]; then
+echo "Too low! try again."
 else
-
- echo "Invalid number, Not within the range"
-
- fi
- echo "the win answer is $x "s
+echo "Too high! try again."
+fi
+done
+echo "the winning number was $x"
