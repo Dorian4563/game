@@ -7,7 +7,7 @@ echo "you win"
  elif [[ $y -lt $x ]]; then
 echo "you lose"
 echo "you above the win number"
-elif [[ $y -gt $x ]]; then
+ elif [[ $y -gt $x ]]; then
 echo "you lose"
 echo "you above the win number"
 else
